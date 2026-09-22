@@ -1,5 +1,7 @@
 ---
-titre: Systematic Trading
+title: Systematic Trading
+aliases:
+  - Carver - Systematic Trading
 sous_titre: A unique new method for designing trading and investing systems
 auteur: Robert Carver
 annee: 2015
@@ -9,9 +11,24 @@ langue: en
 nb_pages: 308
 type: technique
 source: pdf
-tags: [livre/technique/trading, livre/technique/finance]
-domaines: [trading systematique, gestion du risque, allocation de portefeuille]
-concepts_cles: ["[[Volatility Standardisation]]", "[[Volatility Target]]", "[[Kelly Criterion]]", "[[Skew]]", "[[Handcrafting]]", "[[Diversification Multiplier]]", "[[Law of Active Management]]", "[[Standardised Trading Cost]]", "[[Position Inertia]]", "[[Over-fitting]]"]
+tags:
+  - livre/technique/trading
+  - livre/technique/finance
+domaines:
+  - trading systematique
+  - gestion du risque
+  - allocation de portefeuille
+concepts_cles:
+  - "[[Volatility Standardisation]]"
+  - "[[Volatility Target]]"
+  - "[[Kelly Criterion]]"
+  - "[[Skew]]"
+  - "[[Handcrafting]]"
+  - "[[Diversification Multiplier]]"
+  - "[[Law of Active Management]]"
+  - "[[Standardised Trading Cost]]"
+  - "[[Position Inertia]]"
+  - "[[Over-fitting]]"
 livres_lies: []
 ---
 

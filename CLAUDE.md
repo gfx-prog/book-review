@@ -24,8 +24,44 @@ BOOK_REVIEW/
 └── scripts/        Utilitaires d'extraction ajoutés au fil des besoins
 ```
 
-`notes/` et `attachments/` sont conçus pour être **déplacés tels quels dans le vault
+`notes/` et `attachments/` sont conçus pour être **copiés tels quels dans le vault
 Obsidian**, sans rien réécrire. Tout le reste est de la machinerie locale.
+
+### Destination dans le vault
+
+Vault cible : `C:\myDrive\Personnel\Obsidian\myNotes` (structure PARA).
+
+| Source | Destination |
+|---|---|
+| `notes/<Titre>.md` | `3_Ressources/Livres/<thème>/` — à côté de son PDF |
+| `attachments/<Titre>.pdf` | `3_Ressources/Livres/<thème>/` — même nom de base que la note |
+| `notes/concepts/*.md` | `2_Connaissances/<domaine>/Concepts/` |
+
+Le résumé vit avec sa source : un livre = un endroit, et les deux fichiers portant le même
+nom s'affichent côte à côte dans l'explorateur. Les `<thème>` existants sont
+`1_Certifications`, `2_Trading et marches`, `3_Portefeuille et risque`,
+`4_Finance d'entreprise et MA`, `5_Economie et macro`, `6_Data science et ML`,
+`7_Developpement logiciel`, `8_Mindset et developpement perso`, `9_Divers`.
+
+Les notes de concepts vont ailleurs, et c'est délibéré : un concept est transversal
+(`[[Kelly Criterion]]` sera nourri par plusieurs livres), il n'appartient donc à aucun
+dossier de livre. `<domaine>` suit le découpage existant de `2_Connaissances` :
+`Personnelles`, `Professionnelles`, `Techniques`, `Trading`.
+
+L'index `3_Ressources/Livres/Résumés.md` recense les résumés via Dataview (`WHERE auteur`,
+seuls les résumés ont ce champ) — rien à maintenir à la main.
+
+### Avant de copier : vérifier les doublons
+
+La bibliothèque contient 189 PDF, souvent nommés par leur source d'origine
+(`Titre -- Auteur -- éditeur -- <md5> -- Anna's Archive.pdf`). **Toujours vérifier que
+l'ouvrage n'y est pas déjà** avant de copier une pièce jointe, en comparant le MD5 plutôt
+que le nom :
+
+```bash
+find "$VAULT/3_Ressources/Livres" -iname "*<mot du titre>*"
+md5sum "attachments/<Titre>.pdf"   # le md5 figure dans les noms Anna's Archive
+```
 
 ### Règle de portabilité (impérative)
 
@@ -46,6 +82,14 @@ Obsidian**, sans rien réécrire. Tout le reste est de la machinerie locale.
 - Note de concept : nom du concept au singulier — `concepts/Expected Value.md`.
 - Pièce jointe : même titre que la note — `attachments/Thinking in Bets.pdf`.
 - En cas d'homonymie seulement, désambiguïser par l'auteur : `Antifragile (Taleb).md`.
+
+**Les noms de fichiers d'origine sont systématiquement raccourcis.** Un PDF déposé sous
+son nom de source (`Titre -- Auteur -- éditeur -- <md5> -- Anna's Archive.pdf`, ~215
+caractères) est renommé au titre court dès son passage dans `attachments/`. Deux raisons :
+les wikilinks deviennent illisibles, et surtout `LongPathsEnabled` vaut `0` sur cette
+machine — un tel nom dans `3_Ressources/Livres/<thème>/` produit un chemin de ~294
+caractères, au-delà de la limite Windows de 260, que ni `git`, ni l'Explorateur, ni la
+plupart des scripts ne savent manipuler sans le préfixe `\\?\`.
 
 ---
 
@@ -176,9 +220,26 @@ Pas de note d'index ni de MOC à maintenir : le graphe et la recherche Obsidian 
 
 ## 8. Conventions de frontmatter
 
-Champs suivis : **bibliographiques** (`titre`, `sous_titre`, `auteur`, `annee`, `editeur`,
-`isbn`, `langue`, `nb_pages`, `type`, `source`) et **classement Obsidian** (`tags`,
-`domaines`, `concepts_cles`, `livres_lies`).
+Le vault `myNotes` a sa propre convention, qui prime : **clé `title:` en tête**, `aliases:`
+juste après, et **toute valeur multiple en liste YAML**, jamais en tableau sur une ligne.
+
+```yaml
+---
+title: Systematic Trading
+aliases:
+  - Carver - Systematic Trading
+auteur: Robert Carver
+tags:
+  - livre/technique/trading
+---
+```
+
+Champs suivis : **bibliographiques** (`title`, `aliases`, `sous_titre`, `auteur`, `annee`,
+`editeur`, `isbn`, `langue`, `nb_pages`, `type`, `source`) et **classement Obsidian**
+(`tags`, `domaines`, `concepts_cles`, `livres_lies`).
+
+`auteur` sert de marqueur : c'est le champ sur lequel l'index `Résumés.md` distingue un
+résumé d'un PDF. Ne jamais l'omettre.
 
 Pas de suivi de lecture (statut, dates, progression) ni de note d'évaluation : volontairement
 hors périmètre.

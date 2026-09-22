@@ -1,7 +1,11 @@
 ---
+title: Diversification Multiplier
 type: concept
-tags: [concept/portefeuille, concept/risque]
-livres: ["[[Systematic Trading]]"]
+tags:
+  - concept/portefeuille
+  - concept/risque
+livres:
+  - "[[Systematic Trading]]"
 ---
 
 # Diversification Multiplier

@@ -1,7 +1,11 @@
 ---
+title: Standardised Trading Cost
 type: concept
-tags: [concept/couts, concept/trading]
-livres: ["[[Systematic Trading]]"]
+tags:
+  - concept/couts
+  - concept/trading
+livres:
+  - "[[Systematic Trading]]"
 ---
 
 # Standardised Trading Cost

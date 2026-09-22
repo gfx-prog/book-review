@@ -1,7 +1,11 @@
 ---
+title: Skew
 type: concept
-tags: [concept/probabilites, concept/risque]
-livres: ["[[Systematic Trading]]"]
+tags:
+  - concept/probabilites
+  - concept/risque
+livres:
+  - "[[Systematic Trading]]"
 ---
 
 # Skew

@@ -1,7 +1,11 @@
 ---
+title: Volatility Target
 type: concept
-tags: [concept/risque, concept/trading]
-livres: ["[[Systematic Trading]]"]
+tags:
+  - concept/risque
+  - concept/trading
+livres:
+  - "[[Systematic Trading]]"
 ---
 
 # Volatility Target

@@ -1,7 +1,11 @@
 ---
+title: Over-fitting
 type: concept
-tags: [concept/statistiques, concept/trading]
-livres: ["[[Systematic Trading]]"]
+tags:
+  - concept/statistiques
+  - concept/trading
+livres:
+  - "[[Systematic Trading]]"
 ---
 
 # Over-fitting

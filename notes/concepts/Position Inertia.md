@@ -1,7 +1,11 @@
 ---
+title: Position Inertia
 type: concept
-tags: [concept/couts, concept/trading]
-livres: ["[[Systematic Trading]]"]
+tags:
+  - concept/couts
+  - concept/trading
+livres:
+  - "[[Systematic Trading]]"
 ---
 
 # Position Inertia

@@ -1,7 +1,11 @@
 ---
+title: Handcrafting
 type: concept
-tags: [concept/portefeuille, concept/optimisation]
-livres: ["[[Systematic Trading]]"]
+tags:
+  - concept/portefeuille
+  - concept/optimisation
+livres:
+  - "[[Systematic Trading]]"
 ---
 
 # Handcrafting

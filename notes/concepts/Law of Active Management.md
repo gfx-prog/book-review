@@ -1,7 +1,11 @@
 ---
+title: Law of Active Management
 type: concept
-tags: [concept/portefeuille, concept/trading]
-livres: ["[[Systematic Trading]]"]
+tags:
+  - concept/portefeuille
+  - concept/trading
+livres:
+  - "[[Systematic Trading]]"
 ---
 
 # Law of Active Management
