@@ -1,0 +1,23 @@
+# Machinerie locale
+cache/
+inbox/*
+!inbox/.gitkeep
+
+# Sources sous droits d'auteur (trop lourdes pour le dépôt)
+attachments/*.pdf
+attachments/*.epub
+attachments/*.mobi
+attachments/*.azw3
+attachments/*.djvu
+attachments/*.mp3
+attachments/*.m4a
+attachments/*.m4b
+attachments/*.mp4
+attachments/*.wav
+
+# Divers
+.obsidian/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
